@@ -14,6 +14,14 @@ class App:
 
     def run(self):
         st.title('Stock Market Indices Visualization')
+        
+        # User input for date range
+        start_date, end_date = st.date_input(
+            "Select date range",
+            [self.date_range[0], self.date_range[1]]
+        )
+        self.date_range = (start_date, end_date)
+        
         self.fetch_data()
         self.visualize_data()
 
@@ -36,6 +44,6 @@ class App:
             st.error('No data to visualize.')
 
 if __name__ == '__main__':
-    date_range = (datetime(2020, 1, 1), datetime(2021, 12, 31))
-    app = App(date_range)
+    default_date_range = (datetime(2020, 1, 1), datetime(2021, 12, 31))
+    app = App(default_date_range)
     app.run()
