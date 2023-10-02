@@ -14,6 +14,9 @@ class App:
 
     def run(self):
         st.title('Stock Market Indices Visualization')
+
+        # User input for a ticker symbol
+        self.ticker_symbol = st.text_input("Enter ticker symbol:", self.ticker_symbol)
         
         # User input for date range
         date_range_input = st.date_input(
