@@ -13,23 +13,23 @@ class App:
         self.stock_data = None
 
     def run(self):
-    st.title('Stock Market Indices Visualization')
+        st.title('Stock Market Indices Visualization')
+        
+        # User input for date range
+        date_range_input = st.date_input(
+            "Select date range",
+            [self.date_range[0], self.date_range[1]]
+        )
+        
+        if isinstance(date_range_input, list) and len(date_range_input) == 2:
+            start_date, end_date = date_range_input
+        else:
+            start_date = end_date = date_range_input
     
-    # User input for date range
-    date_range_input = st.date_input(
-        "Select date range",
-        [self.date_range[0], self.date_range[1]]
-    )
-    
-    if isinstance(date_range_input, list) and len(date_range_input) == 2:
-        start_date, end_date = date_range_input
-    else:
-        start_date = end_date = date_range_input
-
-    self.date_range = (start_date, end_date)
-    
-    self.fetch_data()
-    self.visualize_data()
+        self.date_range = (start_date, end_date)
+        
+        self.fetch_data()
+        self.visualize_data()
 
 
     def fetch_data(self):
