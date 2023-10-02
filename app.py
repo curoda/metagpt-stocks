@@ -12,7 +12,7 @@ class App:
         self.ticker_symbol = ticker_symbol
         self.stock_data = None
 
-   def run(self):
+    def run(self):
         st.title('Stock Market Indices Visualization')
         
         # User input for date range
@@ -25,15 +25,13 @@ class App:
             start_date, end_date = date_range_input
         else:
             start_date = end_date = date_range_input
-        
+
         self.date_range = (start_date, end_date)
         
         # Add a submit button
         if st.button('Submit'):
             self.fetch_data()
             self.visualize_data()
-
-
 
     def fetch_data(self):
         data_fetcher = DataFetcher(self.date_range, self.ticker_symbol)
