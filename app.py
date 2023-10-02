@@ -25,7 +25,7 @@ class App:
             start_date, end_date = date_range_input
         else:
             start_date = end_date = date_range_input
-    
+        
         self.date_range = (start_date, end_date)
         
         # Add a submit button
